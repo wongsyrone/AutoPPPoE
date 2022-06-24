@@ -35,10 +35,11 @@ namespace AutoPPPoE
             ManagementObjectCollection objectCollect = objectSearcher.Get();
             foreach (ManagementObject result in objectCollect)
             {
-                object name = result.Properties["NetConnectionID"].Value;
-                if (name != null)
+                var nicNetConnId = result.Properties["NetConnectionID"].Value;
+                var    name         = result.Properties["Name"].Value;
+                if (nicNetConnId != null)
                 {
-                    adapterName.Add(name.ToString());
+                    adapterName.Add($"{name}-{nicNetConnId}");
                 }
             }
         }

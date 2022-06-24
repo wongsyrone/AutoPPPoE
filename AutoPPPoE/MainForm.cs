@@ -171,7 +171,7 @@ namespace AutoPPPoE
         {
             foreach (string adapter in NetworkInterface.GetAllNetworkInterfaces().Select(target => target.Name))
             {
-                if (adapter == config.current.adapter)
+                if (adapter == Util.GetNicConnId(config.current.adapter))
                 {
                     return true;
                 }
@@ -189,17 +189,18 @@ namespace AutoPPPoE
         private static void startPPPoE()
         {
             Setting current = config.current;
-            CommandHelper.runCommand("rasdial \"" + current.name + "\" " + current.account + " " + current.password);
+            CommandHelper.runCommand($"rasdial \"{current.name}\" {current.account} {current.password}");
         }
 
         private static void stopPPPoE()
         {
-            CommandHelper.runCommand("rasdial \"" + config.current.name + "\" /disconnect");
+            CommandHelper.runCommand($"rasdial \"{config.current.name}\" /disconnect");
         }
 
         private static void enableAdapter()
         {
-            CommandHelper.runCommand("netsh interface set interface \"" + config.current.adapter + "\" enable");
+            var currConfigNicConnId      = Util.GetNicConnId(config.current.adapter);
+            CommandHelper.runCommand($"netsh interface set interface \"{currConfigNicConnId}\" enable");
         }
 
         private void welcome()
@@ -208,7 +209,7 @@ namespace AutoPPPoE
             showBalloonTip(Status.SHOW_WELCOME);
         }
 
-        private void showBalloonTip(Status mode, bool log = false)
+        private void showBalloonTip(Status mode, bool log = true)
         {
             string message = TIP_MESSAGE[mode];
             niPermanent.BalloonTipText = message;
@@ -407,8 +408,8 @@ namespace AutoPPPoE
 
         private void chkShowDebugLog_CheckedChanged(object sender, EventArgs e)
         {
-            Size originSize = new Size(340, 410);
-            Size extendSize = new Size(610, 410);
+            Size originSize = new Size(466, 492);
+            Size extendSize = new Size(780, 492);
             Size = chkShowDebugLog.Checked ? extendSize : originSize;
             labelDebugLog.Visible = txtDebugLog.Visible = chkShowDebugLog.Checked;
         }
@@ -416,6 +417,7 @@ namespace AutoPPPoE
         private void appendDebugLog(string data)
         {
             string date = DateTime.Now.ToString("yyyy - MM - dd tt hh : mm : ss");
+            Console.WriteLine("[" + date + "] " + data);
             txtDebugLog.Invoke(new MethodInvoker(delegate ()
             {
                 txtDebugLog.AppendText("[" + date + "] " + data + Environment.NewLine);

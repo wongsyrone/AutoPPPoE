@@ -86,5 +86,15 @@ namespace AutoPPPoE
             byte parse;
             return split.All(value => byte.TryParse(value, out parse));
         }
+
+        public static string GetNicConnId(string combinedName)
+        {
+            return combinedName.Split('-')[1];
+        }
+
+        public static string GetNicName(string combinedName)
+        {
+            return combinedName.Split('-')[0];
+        }
     }
 }

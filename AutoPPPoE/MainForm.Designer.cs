@@ -87,41 +87,41 @@
             this.tsmiPause,
             this.tsmiExit});
             this.cmsRightClickMenu.Name = "cmsRightClickMenu";
-            this.cmsRightClickMenu.Size = new System.Drawing.Size(112, 92);
+            this.cmsRightClickMenu.Size = new System.Drawing.Size(114, 92);
             // 
             // tsmiSetting
             // 
             this.tsmiSetting.Name = "tsmiSetting";
-            this.tsmiSetting.Size = new System.Drawing.Size(111, 22);
+            this.tsmiSetting.Size = new System.Drawing.Size(113, 22);
             this.tsmiSetting.Text = "設定";
             this.tsmiSetting.Click += new System.EventHandler(this.tsmiSetting_Click);
             // 
             // tsmiIPTool
             // 
             this.tsmiIPTool.Name = "tsmiIPTool";
-            this.tsmiIPTool.Size = new System.Drawing.Size(111, 22);
+            this.tsmiIPTool.Size = new System.Drawing.Size(113, 22);
             this.tsmiIPTool.Text = "IP 工具";
             this.tsmiIPTool.Click += new System.EventHandler(this.tsmiIPTool_Click);
             // 
             // tsmiPause
             // 
             this.tsmiPause.Name = "tsmiPause";
-            this.tsmiPause.Size = new System.Drawing.Size(111, 22);
+            this.tsmiPause.Size = new System.Drawing.Size(113, 22);
             this.tsmiPause.Text = "暫停";
             this.tsmiPause.Click += new System.EventHandler(this.tsmiPause_Click);
             // 
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(111, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(113, 22);
             this.tsmiExit.Text = "結束";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelTitle.Location = new System.Drawing.Point(12, 9);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelTitle.Location = new System.Drawing.Point(12, 10);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(105, 20);
             this.labelTitle.TabIndex = 0;
@@ -130,9 +130,9 @@
             // labelAdapter
             // 
             this.labelAdapter.AutoSize = true;
-            this.labelAdapter.Location = new System.Drawing.Point(25, 74);
+            this.labelAdapter.Location = new System.Drawing.Point(25, 80);
             this.labelAdapter.Name = "labelAdapter";
-            this.labelAdapter.Size = new System.Drawing.Size(65, 12);
+            this.labelAdapter.Size = new System.Drawing.Size(67, 13);
             this.labelAdapter.TabIndex = 5;
             this.labelAdapter.Text = "網路卡名稱";
             // 
@@ -141,18 +141,18 @@
             this.cbAdapter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAdapter.Enabled = false;
             this.cbAdapter.FormattingEnabled = true;
-            this.cbAdapter.Location = new System.Drawing.Point(96, 71);
+            this.cbAdapter.Location = new System.Drawing.Point(96, 77);
             this.cbAdapter.Name = "cbAdapter";
-            this.cbAdapter.Size = new System.Drawing.Size(159, 20);
+            this.cbAdapter.Size = new System.Drawing.Size(260, 21);
             this.cbAdapter.TabIndex = 6;
             this.cbAdapter.TabStop = false;
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(25, 100);
+            this.labelName.Location = new System.Drawing.Point(25, 108);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(99, 12);
+            this.labelName.Size = new System.Drawing.Size(104, 13);
             this.labelName.TabIndex = 7;
             this.labelName.Text = "PPPoE 介面卡名稱";
             // 
@@ -161,60 +161,60 @@
             this.cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbName.Enabled = false;
             this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(130, 97);
+            this.cbName.Location = new System.Drawing.Point(130, 105);
             this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(125, 20);
+            this.cbName.Size = new System.Drawing.Size(226, 21);
             this.cbName.TabIndex = 8;
             this.cbName.TabStop = false;
             // 
             // labelAccount
             // 
             this.labelAccount.AutoSize = true;
-            this.labelAccount.Location = new System.Drawing.Point(25, 126);
+            this.labelAccount.Location = new System.Drawing.Point(25, 137);
             this.labelAccount.Name = "labelAccount";
-            this.labelAccount.Size = new System.Drawing.Size(29, 12);
+            this.labelAccount.Size = new System.Drawing.Size(31, 13);
             this.labelAccount.TabIndex = 9;
             this.labelAccount.Text = "帳號";
             // 
             // txtAccount
             // 
             this.txtAccount.Enabled = false;
-            this.txtAccount.Location = new System.Drawing.Point(60, 123);
+            this.txtAccount.Location = new System.Drawing.Point(60, 133);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(195, 22);
+            this.txtAccount.Size = new System.Drawing.Size(296, 20);
             this.txtAccount.TabIndex = 10;
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(25, 154);
+            this.labelPassword.Location = new System.Drawing.Point(25, 167);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(29, 12);
+            this.labelPassword.Size = new System.Drawing.Size(31, 13);
             this.labelPassword.TabIndex = 11;
             this.labelPassword.Text = "密碼";
             // 
             // txtPassword
             // 
             this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(60, 151);
+            this.txtPassword.Location = new System.Drawing.Point(60, 164);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(195, 22);
+            this.txtPassword.Size = new System.Drawing.Size(296, 20);
             this.txtPassword.TabIndex = 12;
             // 
             // labelFastPing
             // 
             this.labelFastPing.AutoSize = true;
-            this.labelFastPing.Location = new System.Drawing.Point(25, 181);
+            this.labelFastPing.Location = new System.Drawing.Point(25, 196);
             this.labelFastPing.Name = "labelFastPing";
-            this.labelFastPing.Size = new System.Drawing.Size(104, 12);
+            this.labelFastPing.Size = new System.Drawing.Size(106, 13);
             this.labelFastPing.TabIndex = 14;
             this.labelFastPing.Text = "快速 Ping 等待時間";
             // 
             // numFastPing
             // 
             this.numFastPing.Enabled = false;
-            this.numFastPing.Location = new System.Drawing.Point(135, 179);
+            this.numFastPing.Location = new System.Drawing.Point(135, 194);
             this.numFastPing.Maximum = new decimal(new int[] {
             600000,
             0,
@@ -226,7 +226,7 @@
             0,
             0});
             this.numFastPing.Name = "numFastPing";
-            this.numFastPing.Size = new System.Drawing.Size(120, 22);
+            this.numFastPing.Size = new System.Drawing.Size(221, 20);
             this.numFastPing.TabIndex = 15;
             this.numFastPing.Value = new decimal(new int[] {
             750,
@@ -237,16 +237,16 @@
             // labelSlowPing
             // 
             this.labelSlowPing.AutoSize = true;
-            this.labelSlowPing.Location = new System.Drawing.Point(25, 209);
+            this.labelSlowPing.Location = new System.Drawing.Point(25, 226);
             this.labelSlowPing.Name = "labelSlowPing";
-            this.labelSlowPing.Size = new System.Drawing.Size(104, 12);
+            this.labelSlowPing.Size = new System.Drawing.Size(106, 13);
             this.labelSlowPing.TabIndex = 17;
             this.labelSlowPing.Text = "慢速 Ping 等待時間";
             // 
             // numSlowPing
             // 
             this.numSlowPing.Enabled = false;
-            this.numSlowPing.Location = new System.Drawing.Point(135, 207);
+            this.numSlowPing.Location = new System.Drawing.Point(135, 224);
             this.numSlowPing.Maximum = new decimal(new int[] {
             3600000,
             0,
@@ -258,7 +258,7 @@
             0,
             0});
             this.numSlowPing.Name = "numSlowPing";
-            this.numSlowPing.Size = new System.Drawing.Size(120, 22);
+            this.numSlowPing.Size = new System.Drawing.Size(221, 20);
             this.numSlowPing.TabIndex = 18;
             this.numSlowPing.Value = new decimal(new int[] {
             2500,
@@ -270,38 +270,38 @@
             // 
             this.chkAutomaticStart.AutoSize = true;
             this.chkAutomaticStart.Enabled = false;
-            this.chkAutomaticStart.Location = new System.Drawing.Point(27, 246);
+            this.chkAutomaticStart.Location = new System.Drawing.Point(27, 267);
             this.chkAutomaticStart.Name = "chkAutomaticStart";
-            this.chkAutomaticStart.Size = new System.Drawing.Size(108, 16);
+            this.chkAutomaticStart.Size = new System.Drawing.Size(122, 17);
             this.chkAutomaticStart.TabIndex = 20;
-            this.chkAutomaticStart.Text = "啟動時自動撥號";
+            this.chkAutomaticStart.Text = "程序启动自动拨号";
             this.chkAutomaticStart.UseVisualStyleBackColor = true;
             this.chkAutomaticStart.CheckedChanged += new System.EventHandler(this.chkAutomaticStart_CheckedChanged);
             // 
             // labelAutomaticStartWait
             // 
             this.labelAutomaticStartWait.AutoSize = true;
-            this.labelAutomaticStartWait.Location = new System.Drawing.Point(25, 270);
+            this.labelAutomaticStartWait.Location = new System.Drawing.Point(25, 293);
             this.labelAutomaticStartWait.Name = "labelAutomaticStartWait";
-            this.labelAutomaticStartWait.Size = new System.Drawing.Size(77, 12);
+            this.labelAutomaticStartWait.Size = new System.Drawing.Size(79, 13);
             this.labelAutomaticStartWait.TabIndex = 21;
             this.labelAutomaticStartWait.Text = "啟動等待時間";
             // 
             // labelAutomaticStartWaitUnit
             // 
             this.labelAutomaticStartWaitUnit.AutoSize = true;
-            this.labelAutomaticStartWaitUnit.Location = new System.Drawing.Point(261, 270);
+            this.labelAutomaticStartWaitUnit.Location = new System.Drawing.Point(377, 293);
             this.labelAutomaticStartWaitUnit.Name = "labelAutomaticStartWaitUnit";
-            this.labelAutomaticStartWaitUnit.Size = new System.Drawing.Size(17, 12);
+            this.labelAutomaticStartWaitUnit.Size = new System.Drawing.Size(19, 13);
             this.labelAutomaticStartWaitUnit.TabIndex = 23;
             this.labelAutomaticStartWaitUnit.Text = "秒";
             // 
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(16, 306);
+            this.btnSave.Location = new System.Drawing.Point(16, 332);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(293, 23);
+            this.btnSave.Size = new System.Drawing.Size(406, 25);
             this.btnSave.TabIndex = 24;
             this.btnSave.Text = "儲存設定";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -310,14 +310,14 @@
             // numAutomaticStartWait
             // 
             this.numAutomaticStartWait.Enabled = false;
-            this.numAutomaticStartWait.Location = new System.Drawing.Point(135, 268);
+            this.numAutomaticStartWait.Location = new System.Drawing.Point(135, 290);
             this.numAutomaticStartWait.Maximum = new decimal(new int[] {
             3600,
             0,
             0,
             0});
             this.numAutomaticStartWait.Name = "numAutomaticStartWait";
-            this.numAutomaticStartWait.Size = new System.Drawing.Size(120, 22);
+            this.numAutomaticStartWait.Size = new System.Drawing.Size(221, 20);
             this.numAutomaticStartWait.TabIndex = 22;
             this.numAutomaticStartWait.Value = new decimal(new int[] {
             5,
@@ -328,27 +328,27 @@
             // labelFastPingUnit
             // 
             this.labelFastPingUnit.AutoSize = true;
-            this.labelFastPingUnit.Location = new System.Drawing.Point(261, 181);
+            this.labelFastPingUnit.Location = new System.Drawing.Point(377, 196);
             this.labelFastPingUnit.Name = "labelFastPingUnit";
-            this.labelFastPingUnit.Size = new System.Drawing.Size(29, 12);
+            this.labelFastPingUnit.Size = new System.Drawing.Size(31, 13);
             this.labelFastPingUnit.TabIndex = 16;
             this.labelFastPingUnit.Text = "豪秒";
             // 
             // labelSlowPingUnit
             // 
             this.labelSlowPingUnit.AutoSize = true;
-            this.labelSlowPingUnit.Location = new System.Drawing.Point(261, 209);
+            this.labelSlowPingUnit.Location = new System.Drawing.Point(377, 226);
             this.labelSlowPingUnit.Name = "labelSlowPingUnit";
-            this.labelSlowPingUnit.Size = new System.Drawing.Size(29, 12);
+            this.labelSlowPingUnit.Size = new System.Drawing.Size(31, 13);
             this.labelSlowPingUnit.TabIndex = 19;
             this.labelSlowPingUnit.Text = "豪秒";
             // 
             // btnStart
             // 
             this.btnStart.Enabled = false;
-            this.btnStart.Location = new System.Drawing.Point(16, 335);
+            this.btnStart.Location = new System.Drawing.Point(16, 363);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(293, 23);
+            this.btnStart.Size = new System.Drawing.Size(406, 25);
             this.btnStart.TabIndex = 25;
             this.btnStart.Text = "開始";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -358,9 +358,9 @@
             // 
             this.chkShowPassword.AutoSize = true;
             this.chkShowPassword.Enabled = false;
-            this.chkShowPassword.Location = new System.Drawing.Point(261, 153);
+            this.chkShowPassword.Location = new System.Drawing.Point(377, 166);
             this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(48, 16);
+            this.chkShowPassword.Size = new System.Drawing.Size(50, 17);
             this.chkShowPassword.TabIndex = 13;
             this.chkShowPassword.Text = "顯示";
             this.chkShowPassword.UseVisualStyleBackColor = true;
@@ -369,9 +369,9 @@
             // labelSetting
             // 
             this.labelSetting.AutoSize = true;
-            this.labelSetting.Location = new System.Drawing.Point(25, 48);
+            this.labelSetting.Location = new System.Drawing.Point(25, 52);
             this.labelSetting.Name = "labelSetting";
-            this.labelSetting.Size = new System.Drawing.Size(53, 12);
+            this.labelSetting.Size = new System.Drawing.Size(55, 13);
             this.labelSetting.TabIndex = 2;
             this.labelSetting.Text = "設定名稱";
             // 
@@ -379,18 +379,18 @@
             // 
             this.cbSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSetting.FormattingEnabled = true;
-            this.cbSetting.Location = new System.Drawing.Point(84, 45);
+            this.cbSetting.Location = new System.Drawing.Point(84, 49);
             this.cbSetting.Name = "cbSetting";
-            this.cbSetting.Size = new System.Drawing.Size(171, 20);
+            this.cbSetting.Size = new System.Drawing.Size(272, 21);
             this.cbSetting.TabIndex = 3;
             this.cbSetting.TabStop = false;
             this.cbSetting.SelectedIndexChanged += new System.EventHandler(this.cbSetting_SelectedIndexChanged);
             // 
             // btnManageSetting
             // 
-            this.btnManageSetting.Location = new System.Drawing.Point(261, 43);
+            this.btnManageSetting.Location = new System.Drawing.Point(377, 47);
             this.btnManageSetting.Name = "btnManageSetting";
-            this.btnManageSetting.Size = new System.Drawing.Size(45, 23);
+            this.btnManageSetting.Size = new System.Drawing.Size(45, 25);
             this.btnManageSetting.TabIndex = 4;
             this.btnManageSetting.Text = "管理";
             this.btnManageSetting.UseVisualStyleBackColor = true;
@@ -399,9 +399,9 @@
             // chkShowDebugLog
             // 
             this.chkShowDebugLog.AutoSize = true;
-            this.chkShowDebugLog.Location = new System.Drawing.Point(210, 14);
+            this.chkShowDebugLog.Location = new System.Drawing.Point(210, 15);
             this.chkShowDebugLog.Name = "chkShowDebugLog";
-            this.chkShowDebugLog.Size = new System.Drawing.Size(96, 16);
+            this.chkShowDebugLog.Size = new System.Drawing.Size(98, 17);
             this.chkShowDebugLog.TabIndex = 1;
             this.chkShowDebugLog.Text = "顯示除錯訊息";
             this.chkShowDebugLog.UseVisualStyleBackColor = true;
@@ -410,8 +410,8 @@
             // labelDebugLog
             // 
             this.labelDebugLog.AutoSize = true;
-            this.labelDebugLog.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelDebugLog.Location = new System.Drawing.Point(330, 9);
+            this.labelDebugLog.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelDebugLog.Location = new System.Drawing.Point(470, 10);
             this.labelDebugLog.Name = "labelDebugLog";
             this.labelDebugLog.Size = new System.Drawing.Size(73, 20);
             this.labelDebugLog.TabIndex = 26;
@@ -420,20 +420,20 @@
             // 
             // txtDebugLog
             // 
-            this.txtDebugLog.Location = new System.Drawing.Point(345, 43);
+            this.txtDebugLog.Location = new System.Drawing.Point(485, 47);
             this.txtDebugLog.Multiline = true;
             this.txtDebugLog.Name = "txtDebugLog";
             this.txtDebugLog.ReadOnly = true;
             this.txtDebugLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDebugLog.Size = new System.Drawing.Size(230, 316);
+            this.txtDebugLog.Size = new System.Drawing.Size(230, 342);
             this.txtDebugLog.TabIndex = 27;
             this.txtDebugLog.Visible = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 371);
+            this.ClientSize = new System.Drawing.Size(450, 453);
             this.Controls.Add(this.txtDebugLog);
             this.Controls.Add(this.labelDebugLog);
             this.Controls.Add(this.chkShowDebugLog);

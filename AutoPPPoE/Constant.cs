@@ -30,8 +30,8 @@ namespace AutoPPPoE
         public const int WAIT_NETWORK_STATUS_CHANGE_DELAY = 5000;
         public const int TOOL_TIP_SHOW_DURATION = 5000;
 
-        public const string FAST_CHECK_HOST = "139.175.55.244";
-        public const string SLOW_CHECK_HOST = "203.79.224.10";
+        public const string FAST_CHECK_HOST = "www.baidu.com";
+        public const string SLOW_CHECK_HOST = "www.baidu.com";
         public const string IP_FETCH_URL = "https://ip4.seeip.org/";
 
         public const string AES_KEY = "ew.sr.x1c.quilt.meow";
