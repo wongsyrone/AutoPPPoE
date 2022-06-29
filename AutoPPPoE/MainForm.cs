@@ -186,21 +186,24 @@ namespace AutoPPPoE
             checkThread.Start();
         }
 
-        private static void startPPPoE()
+        private void startPPPoE()
         {
             Setting current = config.current;
-            CommandHelper.runCommand($"rasdial \"{current.name}\" {current.account} {current.password}");
+            var ret = CommandHelper.runCommand($"rasdial \"{current.name}\" {current.account} {current.password}");
+            appendDebugLog(ret);
         }
 
-        private static void stopPPPoE()
+        private void stopPPPoE()
         {
-            CommandHelper.runCommand($"rasdial \"{config.current.name}\" /disconnect");
+            var ret = CommandHelper.runCommand($"rasdial \"{config.current.name}\" /disconnect");
+            appendDebugLog(ret);
         }
 
-        private static void enableAdapter()
+        private void enableAdapter()
         {
             var currConfigNicConnId      = Util.GetNicConnId(config.current.adapter);
-            CommandHelper.runCommand($"netsh interface set interface \"{currConfigNicConnId}\" enable");
+            var ret = CommandHelper.runCommand($"netsh interface set interface \"{currConfigNicConnId}\" enable");
+            appendDebugLog(ret);
         }
 
         private void welcome()
