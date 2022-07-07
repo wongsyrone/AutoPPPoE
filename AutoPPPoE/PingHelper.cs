@@ -1,22 +1,38 @@
-﻿using System.Net.NetworkInformation;
+﻿using System;
+using System.Net.Sockets;
 
 namespace AutoPPPoE
 {
     public static class PingHelper
     {
-        public static bool pingHost(string host, int timeout)
+        public static bool pingHost(string host, int port, int timeout)
         {
-            bool pingable = false;
-            Ping ping = new Ping();
+            bool   pingable = false;
+            Socket s        = null;
             try
             {
-                PingReply reply = ping.Send(host, timeout, new byte[Constant.PING_BYTE]);
-                pingable = reply.Status == IPStatus.Success;
+                s = new Socket(SocketType.Stream, ProtocolType.Tcp) { Blocking = false };
+
+                var result = s.BeginConnect(host, port,
+                    null,
+                    null);
+                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromMilliseconds(timeout), true);
+                if (success)
+                {
+                    s.EndConnect(result);
+                    pingable = true;
+                }
+
+                return pingable;
             }
-            catch
+            catch (SocketException)
             {
+                return false;
             }
-            return pingable;
+            finally
+            {
+                s?.Close();
+            }
         }
     }
 }

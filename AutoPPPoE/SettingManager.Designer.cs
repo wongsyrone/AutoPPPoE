@@ -40,9 +40,9 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(17, 75);
+            this.btnNew.Location = new System.Drawing.Point(17, 81);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(65, 23);
+            this.btnNew.Size = new System.Drawing.Size(65, 25);
             this.btnNew.TabIndex = 4;
             this.btnNew.Text = "新增";
             this.btnNew.UseVisualStyleBackColor = true;
@@ -51,42 +51,42 @@
             // labelSelectSetting
             // 
             this.labelSelectSetting.AutoSize = true;
-            this.labelSelectSetting.Location = new System.Drawing.Point(15, 18);
+            this.labelSelectSetting.Location = new System.Drawing.Point(15, 20);
             this.labelSelectSetting.Name = "labelSelectSetting";
-            this.labelSelectSetting.Size = new System.Drawing.Size(77, 12);
+            this.labelSelectSetting.Size = new System.Drawing.Size(67, 13);
             this.labelSelectSetting.TabIndex = 0;
-            this.labelSelectSetting.Text = "選擇設定檔案";
+            this.labelSelectSetting.Text = "选择设定档";
             // 
             // labelSettingName
             // 
             this.labelSettingName.AutoSize = true;
-            this.labelSettingName.Location = new System.Drawing.Point(15, 44);
+            this.labelSettingName.Location = new System.Drawing.Point(15, 48);
             this.labelSettingName.Name = "labelSettingName";
-            this.labelSettingName.Size = new System.Drawing.Size(77, 12);
+            this.labelSettingName.Size = new System.Drawing.Size(67, 13);
             this.labelSettingName.TabIndex = 2;
-            this.labelSettingName.Text = "設定檔案名稱";
+            this.labelSettingName.Text = "设定档名称";
             // 
             // cbSetting
             // 
             this.cbSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSetting.FormattingEnabled = true;
-            this.cbSetting.Location = new System.Drawing.Point(105, 15);
+            this.cbSetting.Location = new System.Drawing.Point(105, 16);
             this.cbSetting.Name = "cbSetting";
-            this.cbSetting.Size = new System.Drawing.Size(150, 20);
+            this.cbSetting.Size = new System.Drawing.Size(150, 21);
             this.cbSetting.TabIndex = 1;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(105, 41);
+            this.txtName.Location = new System.Drawing.Point(105, 44);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(150, 22);
+            this.txtName.Size = new System.Drawing.Size(150, 20);
             this.txtName.TabIndex = 3;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(105, 75);
+            this.btnEdit.Location = new System.Drawing.Point(105, 81);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(65, 23);
+            this.btnEdit.Size = new System.Drawing.Size(65, 25);
             this.btnEdit.TabIndex = 5;
             this.btnEdit.Text = "更名";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(190, 75);
+            this.btnRemove.Location = new System.Drawing.Point(190, 81);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(65, 23);
+            this.btnRemove.Size = new System.Drawing.Size(65, 25);
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "移除";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -104,9 +104,9 @@
             // 
             // SettingManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 111);
+            this.ClientSize = new System.Drawing.Size(274, 120);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtName);
@@ -119,7 +119,7 @@
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.MaximizeBox = false;
             this.Name = "SettingManager";
-            this.Text = "設定檔案管理";
+            this.Text = "管理设定档";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -6,22 +6,14 @@ namespace AutoPPPoE
 {
     public class AdapterManager
     {
-        public IList<string> adapterName
-        {
-            get;
-            private set;
-        }
+        public IList<string> adapterName { get; private set; }
 
-        public IList<string> rasName
-        {
-            get;
-            private set;
-        }
+        public IList<string> rasName { get; private set; }
 
         public AdapterManager()
         {
             adapterName = new List<string>();
-            rasName = new List<string>();
+            rasName     = new List<string>();
             loadAdapter();
             loadRAS(RasPhoneBookType.AllUsers);
             loadRAS(RasPhoneBookType.User);
@@ -29,17 +21,19 @@ namespace AutoPPPoE
 
         private void loadAdapter()
         {
-            ManagementScope scope = new ManagementScope();
-            ObjectQuery objectQuery = new ObjectQuery("SELECT * FROM Win32_NetworkAdapter");
-            ManagementObjectSearcher objectSearcher = new ManagementObjectSearcher(scope, objectQuery);
-            ManagementObjectCollection objectCollect = objectSearcher.Get();
-            foreach (ManagementObject result in objectCollect)
+            ManagementScope scope       = new ManagementScope();
+            ObjectQuery     objectQuery = new ObjectQuery("SELECT * FROM Win32_NetworkAdapter");
+            using (ManagementObjectSearcher objectSearcher = new ManagementObjectSearcher(scope, objectQuery))
+            using (ManagementObjectCollection objectCollect = objectSearcher.Get())
             {
-                var nicNetConnId = result.Properties["NetConnectionID"].Value;
-                var    name         = result.Properties["Name"].Value;
-                if (nicNetConnId != null)
+                foreach (ManagementObject result in objectCollect)
                 {
-                    adapterName.Add($"{name}-{nicNetConnId}");
+                    var nicNetConnId = result.Properties["NetConnectionID"].Value;
+                    var name         = result.Properties["Name"].Value;
+                    if (nicNetConnId != null)
+                    {
+                        adapterName.Add($"{name}${nicNetConnId}");
+                    }
                 }
             }
         }
@@ -47,11 +41,13 @@ namespace AutoPPPoE
         private void loadRAS(RasPhoneBookType type)
         {
             string phoneBookPath = RasPhoneBook.GetPhoneBookPath(type);
-            RasPhoneBook phoneBook = new RasPhoneBook();
-            phoneBook.Open(phoneBookPath);
-            foreach (RasEntry entry in phoneBook.Entries)
+            using (RasPhoneBook phoneBook = new RasPhoneBook())
             {
-                rasName.Add(entry.Name);
+                phoneBook.Open(phoneBookPath);
+                foreach (RasEntry entry in phoneBook.Entries)
+                {
+                    rasName.Add(entry.Name);
+                }
             }
         }
     }

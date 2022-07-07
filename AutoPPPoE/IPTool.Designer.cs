@@ -46,17 +46,17 @@
             // 
             // txtAdapterDesc
             // 
-            this.txtAdapterDesc.Location = new System.Drawing.Point(112, 136);
+            this.txtAdapterDesc.Location = new System.Drawing.Point(112, 147);
             this.txtAdapterDesc.Name = "txtAdapterDesc";
             this.txtAdapterDesc.ReadOnly = true;
-            this.txtAdapterDesc.Size = new System.Drawing.Size(184, 22);
+            this.txtAdapterDesc.Size = new System.Drawing.Size(184, 20);
             this.txtAdapterDesc.TabIndex = 7;
             // 
             // btnUpdateAdapterList
             // 
-            this.btnUpdateAdapterList.Location = new System.Drawing.Point(27, 220);
+            this.btnUpdateAdapterList.Location = new System.Drawing.Point(27, 238);
             this.btnUpdateAdapterList.Name = "btnUpdateAdapterList";
-            this.btnUpdateAdapterList.Size = new System.Drawing.Size(269, 23);
+            this.btnUpdateAdapterList.Size = new System.Drawing.Size(269, 25);
             this.btnUpdateAdapterList.TabIndex = 12;
             this.btnUpdateAdapterList.Text = "更新列表";
             this.btnUpdateAdapterList.UseVisualStyleBackColor = true;
@@ -65,11 +65,11 @@
             // labelAdapterIP
             // 
             this.labelAdapterIP.AutoSize = true;
-            this.labelAdapterIP.Location = new System.Drawing.Point(25, 167);
+            this.labelAdapterIP.Location = new System.Drawing.Point(25, 181);
             this.labelAdapterIP.Name = "labelAdapterIP";
-            this.labelAdapterIP.Size = new System.Drawing.Size(81, 12);
+            this.labelAdapterIP.Size = new System.Drawing.Size(65, 13);
             this.labelAdapterIP.TabIndex = 8;
-            this.labelAdapterIP.Text = "網路卡 IP 位址";
+            this.labelAdapterIP.Text = "网卡IP地址";
             // 
             // cbAdapter
             // 
@@ -77,17 +77,17 @@
             this.cbAdapter.FormattingEnabled = true;
             this.cbAdapter.Items.AddRange(new object[] {
             "空"});
-            this.cbAdapter.Location = new System.Drawing.Point(112, 110);
+            this.cbAdapter.Location = new System.Drawing.Point(112, 119);
             this.cbAdapter.Name = "cbAdapter";
-            this.cbAdapter.Size = new System.Drawing.Size(184, 20);
+            this.cbAdapter.Size = new System.Drawing.Size(184, 21);
             this.cbAdapter.TabIndex = 5;
             this.cbAdapter.SelectedIndexChanged += new System.EventHandler(this.cbAdapter_SelectedIndexChanged);
             // 
             // labelIPTool
             // 
             this.labelIPTool.AutoSize = true;
-            this.labelIPTool.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelIPTool.Location = new System.Drawing.Point(12, 9);
+            this.labelIPTool.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labelIPTool.Location = new System.Drawing.Point(12, 10);
             this.labelIPTool.Name = "labelIPTool";
             this.labelIPTool.Size = new System.Drawing.Size(60, 20);
             this.labelIPTool.TabIndex = 0;
@@ -96,53 +96,53 @@
             // labelPublicIP
             // 
             this.labelPublicIP.AutoSize = true;
-            this.labelPublicIP.Location = new System.Drawing.Point(25, 43);
+            this.labelPublicIP.Location = new System.Drawing.Point(25, 47);
             this.labelPublicIP.Name = "labelPublicIP";
-            this.labelPublicIP.Size = new System.Drawing.Size(69, 12);
+            this.labelPublicIP.Size = new System.Drawing.Size(71, 13);
             this.labelPublicIP.TabIndex = 1;
-            this.labelPublicIP.Text = "外部 IP 位址";
+            this.labelPublicIP.Text = "外部 IP 地址";
             // 
             // txtPublicIP
             // 
-            this.txtPublicIP.Location = new System.Drawing.Point(100, 40);
+            this.txtPublicIP.Location = new System.Drawing.Point(100, 43);
             this.txtPublicIP.Name = "txtPublicIP";
             this.txtPublicIP.ReadOnly = true;
-            this.txtPublicIP.Size = new System.Drawing.Size(196, 22);
+            this.txtPublicIP.Size = new System.Drawing.Size(196, 20);
             this.txtPublicIP.TabIndex = 2;
             this.txtPublicIP.Text = "等待中 ...";
             // 
             // txtAdapterIP
             // 
-            this.txtAdapterIP.Location = new System.Drawing.Point(112, 164);
+            this.txtAdapterIP.Location = new System.Drawing.Point(112, 178);
             this.txtAdapterIP.Name = "txtAdapterIP";
             this.txtAdapterIP.ReadOnly = true;
-            this.txtAdapterIP.Size = new System.Drawing.Size(184, 22);
+            this.txtAdapterIP.Size = new System.Drawing.Size(184, 20);
             this.txtAdapterIP.TabIndex = 9;
             // 
             // labelAdapterDesc
             // 
             this.labelAdapterDesc.AutoSize = true;
-            this.labelAdapterDesc.Location = new System.Drawing.Point(25, 139);
+            this.labelAdapterDesc.Location = new System.Drawing.Point(25, 151);
             this.labelAdapterDesc.Name = "labelAdapterDesc";
-            this.labelAdapterDesc.Size = new System.Drawing.Size(65, 12);
+            this.labelAdapterDesc.Size = new System.Drawing.Size(55, 13);
             this.labelAdapterDesc.TabIndex = 6;
-            this.labelAdapterDesc.Text = "網路卡描述";
+            this.labelAdapterDesc.Text = "网卡描述";
             // 
             // labelAdapterName
             // 
             this.labelAdapterName.AutoSize = true;
-            this.labelAdapterName.Location = new System.Drawing.Point(25, 113);
+            this.labelAdapterName.Location = new System.Drawing.Point(25, 122);
             this.labelAdapterName.Name = "labelAdapterName";
-            this.labelAdapterName.Size = new System.Drawing.Size(65, 12);
+            this.labelAdapterName.Size = new System.Drawing.Size(55, 13);
             this.labelAdapterName.TabIndex = 4;
-            this.labelAdapterName.Text = "網路卡名稱";
+            this.labelAdapterName.Text = "网卡名称";
             // 
             // btnUpdatePublicIP
             // 
             this.btnUpdatePublicIP.Enabled = false;
-            this.btnUpdatePublicIP.Location = new System.Drawing.Point(27, 68);
+            this.btnUpdatePublicIP.Location = new System.Drawing.Point(27, 74);
             this.btnUpdatePublicIP.Name = "btnUpdatePublicIP";
-            this.btnUpdatePublicIP.Size = new System.Drawing.Size(269, 23);
+            this.btnUpdatePublicIP.Size = new System.Drawing.Size(269, 25);
             this.btnUpdatePublicIP.TabIndex = 3;
             this.btnUpdatePublicIP.Text = "更新外部 IP";
             this.btnUpdatePublicIP.UseVisualStyleBackColor = true;
@@ -151,25 +151,25 @@
             // labelProxy
             // 
             this.labelProxy.AutoSize = true;
-            this.labelProxy.Location = new System.Drawing.Point(25, 195);
+            this.labelProxy.Location = new System.Drawing.Point(25, 211);
             this.labelProxy.Name = "labelProxy";
-            this.labelProxy.Size = new System.Drawing.Size(33, 12);
+            this.labelProxy.Size = new System.Drawing.Size(31, 13);
             this.labelProxy.TabIndex = 10;
-            this.labelProxy.Text = "Proxy";
+            this.labelProxy.Text = "代理";
             // 
             // txtProxy
             // 
-            this.txtProxy.Location = new System.Drawing.Point(112, 192);
+            this.txtProxy.Location = new System.Drawing.Point(112, 208);
             this.txtProxy.Name = "txtProxy";
             this.txtProxy.ReadOnly = true;
-            this.txtProxy.Size = new System.Drawing.Size(184, 22);
+            this.txtProxy.Size = new System.Drawing.Size(184, 20);
             this.txtProxy.TabIndex = 11;
             // 
             // IPTool
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 256);
+            this.ClientSize = new System.Drawing.Size(324, 277);
             this.Controls.Add(this.txtProxy);
             this.Controls.Add(this.labelProxy);
             this.Controls.Add(this.btnUpdatePublicIP);

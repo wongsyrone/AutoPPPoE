@@ -97,7 +97,7 @@ namespace AutoPPPoE
 
         public string toString()
         {
-            return "[EW 例外狀況物件] 原因 : " + getMessage();
+            return "[EW] 原因 : " + getMessage();
         }
     }
 }
