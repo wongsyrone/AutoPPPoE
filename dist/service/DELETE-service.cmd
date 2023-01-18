@@ -1,4 +1,5 @@
 @ECHO OFF
+title 删除auto pppoe服务
 
 :: Administrative permission check
 net session >nul 2>nul
@@ -10,6 +11,10 @@ IF ERRORLEVEL 1 (
 	echo.
 	cls
 )
+
+echo 按任意键卸载auto pppoe服务
+echo.
+pause
 
 sc delete autopppoe-service
 echo 可以关闭窗口了
