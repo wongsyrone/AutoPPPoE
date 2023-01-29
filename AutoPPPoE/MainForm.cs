@@ -334,6 +334,16 @@ namespace AutoPPPoE
             }
         }
 
+        private double TimeSpan2LoopCount(TimeSpan ts)
+        {
+            return Math.Ceiling(ts.TotalMilliseconds / Constant.WAIT_NEXT_TIME_DELAY);
+        }
+
+        private TimeSpan LoopCount2TimeSpan(int loopCount)
+        {
+            return TimeSpan.FromMilliseconds(loopCount * Constant.WAIT_NEXT_TIME_DELAY);
+        }
+
         private void checkConnect(Status mode)
         {
             if (mode == Status.MODE_START_UP)
@@ -341,8 +351,14 @@ namespace AutoPPPoE
                 Thread.Sleep(config.current.automaticStartWaitTime * 1000);
             }
 
-            int tcpPingCheckFailCount = 0;
-            int waitNextTimeLoopCount = 0;
+            var minTcpPingInterval                  = TimeSpan.FromSeconds(10);
+            var minTcpPingIntervalNextTimeLoopCount = Convert.ToInt32(TimeSpan2LoopCount(minTcpPingInterval));
+            var maxTcpPingInterval                  = TimeSpan.FromMinutes(8);
+            var maxTcpPingIntervalNextTimeLoopCount = Convert.ToInt32(TimeSpan2LoopCount(maxTcpPingInterval));
+
+            int currentTcpPingInterval = minTcpPingIntervalNextTimeLoopCount;
+            int tcpPingCheckFailCount  = 0;
+            int waitNextTimeLoopCount  = 0;
 
             appendDebugLog("网络连通性监测正在进行...");
             while (true)
@@ -380,23 +396,57 @@ namespace AutoPPPoE
                             }
 
                             // 存在错误计数时加快检测
-                            bool shouldDoTcpPingCheck = (waitNextTimeLoopCount % 10) == 0 || tcpPingCheckFailCount > 0;
-                            //appendDebugLog($"waitNextTimeLoopCounter {waitNextTimeLoopCount} shouldTcpPing {shouldDoTcpPingCheck}");
+                            bool shouldDoTcpPingCheck = waitNextTimeLoopCount % currentTcpPingInterval == 0 ||
+                                                        tcpPingCheckFailCount > Constant.MAX_TCP_PING_CHECK_ATTEMPT / 2;
+
                             if (shouldDoTcpPingCheck)
                             {
+                                var restoredFromFailure = false;
                                 var tcpingRet = PingHelper.pingHost(current.tcpPingHost, current.tcpPingPort,
                                     current.tcpPing);
                                 if (tcpingRet)
                                 {
                                     // success
-                                    tcpPingCheckFailCount = 0;
+                                    restoredFromFailure    =  tcpPingCheckFailCount > 0;
+                                    tcpPingCheckFailCount  =  0;
+                                    currentTcpPingInterval *= 2;
                                 }
                                 else
                                 {
                                     // fail
                                     ++tcpPingCheckFailCount;
+                                    currentTcpPingInterval /= 2;
                                 }
 
+                                if (currentTcpPingInterval > maxTcpPingIntervalNextTimeLoopCount)
+                                {
+                                    currentTcpPingInterval = maxTcpPingIntervalNextTimeLoopCount;
+                                }
+
+                                if (currentTcpPingInterval < minTcpPingIntervalNextTimeLoopCount)
+                                {
+                                    currentTcpPingInterval = minTcpPingIntervalNextTimeLoopCount;
+                                }
+
+                                if (!tcpingRet)
+                                {
+                                    appendDebugLog($@"[网络监测] 互联网故障
+        tcpPingCheckFailCount       {tcpPingCheckFailCount}
+        waitNextTimeLoopCounter     {waitNextTimeLoopCount}
+        currentTcpPingInterval      {LoopCount2TimeSpan(currentTcpPingInterval)}
+        minTcpPingInterval          {LoopCount2TimeSpan(minTcpPingIntervalNextTimeLoopCount)}
+        maxTcpPingInterval          {LoopCount2TimeSpan(maxTcpPingIntervalNextTimeLoopCount)}");
+                                }
+
+                                if (restoredFromFailure)
+                                {
+                                    appendDebugLog($@"[网络监测] 互联网恢复
+        tcpPingCheckFailCount       {tcpPingCheckFailCount}
+        waitNextTimeLoopCounter     {waitNextTimeLoopCount}
+        currentTcpPingInterval      {LoopCount2TimeSpan(currentTcpPingInterval)}
+        minTcpPingInterval          {LoopCount2TimeSpan(minTcpPingIntervalNextTimeLoopCount)}
+        maxTcpPingInterval          {LoopCount2TimeSpan(maxTcpPingIntervalNextTimeLoopCount)}");
+                                }
 
                                 if (tcpPingCheckFailCount > Constant.MAX_TCP_PING_CHECK_ATTEMPT)
                                 {

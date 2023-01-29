@@ -36,7 +36,7 @@ namespace AutoPPPoE
 
         public const byte MAX_FETCH_ATTEMPT = 3;
 
-        public const int MAX_TCP_PING_CHECK_ATTEMPT = 4;
+        public const int MAX_TCP_PING_CHECK_ATTEMPT = 6;
 
         public const int WAIT_NEXT_TIME_DELAY = 3000;
         public const int WAIT_NETWORK_STATUS_CHANGE_DELAY = 5000;
