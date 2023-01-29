@@ -257,7 +257,7 @@ namespace AutoPPPoE
         {
             if (!Util.CanUseService())
             {
-                appendDebugLog($"service PREPARE: winsw service exe [{Constant.winswServiceExePath}] not exists");
+                appendLog($"service PREPARE: winsw service exe [{Constant.winswServiceExePath}] not exists");
                 return;
             }
 
@@ -265,12 +265,12 @@ namespace AutoPPPoE
             {
                 var ret = CommandHelper.runCommand($@"""{Constant.winswServiceExePath}"" uninstall",
                     $@"""{Constant.winswServiceExePath}"" install");
-                appendDebugLog($"service INSTALL: {ret}");
+                appendLog($"service INSTALL: {ret}");
             }
             else
             {
                 var ret = CommandHelper.runCommand($@"""{Constant.winswServiceExePath}"" uninstall");
-                appendDebugLog($"service UNINSTALL: {ret}");
+                appendLog($"service UNINSTALL: {ret}");
             }
         }
 
@@ -301,20 +301,20 @@ namespace AutoPPPoE
             Setting current = config.current;
             var ret = CommandHelper.runCommand(
                 $@"rasdial ""{current.name}"" {current.account} {current.plainTextPassword}");
-            appendDebugLog(ret);
+            appendLog(ret);
         }
 
         private void stopPPPoE()
         {
             var ret = CommandHelper.runCommand($@"rasdial ""{config.current.name}"" /disconnect");
-            appendDebugLog(ret);
+            appendLog(ret);
         }
 
         private void enableAdapter()
         {
             var currConfigNicConnId = Util.GetNicConnId(config.current.adapter);
             var ret = CommandHelper.runCommand($@"netsh interface set interface ""{currConfigNicConnId}"" enable");
-            appendDebugLog(ret);
+            appendLog(ret);
         }
 
         private void welcome()
@@ -330,7 +330,7 @@ namespace AutoPPPoE
             niPermanent.ShowBalloonTip(Constant.TOOL_TIP_SHOW_DURATION);
             if (log)
             {
-                appendDebugLog(message);
+                appendDesktopLog(message);
             }
         }
 
@@ -360,7 +360,7 @@ namespace AutoPPPoE
             int tcpPingCheckFailCount  = 0;
             int waitNextTimeLoopCount  = 0;
 
-            appendDebugLog("网络连通性监测正在进行...");
+            appendLog("网络连通性监测正在进行...");
             while (true)
             {
                 try
@@ -395,7 +395,7 @@ namespace AutoPPPoE
                                 waitNextTimeLoopCount = 0;
                             }
 
-                            // 存在错误计数时加快检测
+                            // 错误计数过大时加快检测
                             bool shouldDoTcpPingCheck = waitNextTimeLoopCount % currentTcpPingInterval == 0 ||
                                                         tcpPingCheckFailCount > Constant.MAX_TCP_PING_CHECK_ATTEMPT / 2;
 
@@ -430,7 +430,7 @@ namespace AutoPPPoE
 
                                 if (!tcpingRet)
                                 {
-                                    appendDebugLog($@"[网络监测] 互联网故障
+                                    appendLog($@"[网络监测] 互联网故障
         tcpPingCheckFailCount       {tcpPingCheckFailCount}
         waitNextTimeLoopCounter     {waitNextTimeLoopCount}
         currentTcpPingInterval      {LoopCount2TimeSpan(currentTcpPingInterval)}
@@ -440,7 +440,7 @@ namespace AutoPPPoE
 
                                 if (restoredFromFailure)
                                 {
-                                    appendDebugLog($@"[网络监测] 互联网恢复
+                                    appendLog($@"[网络监测] 互联网恢复
         tcpPingCheckFailCount       {tcpPingCheckFailCount}
         waitNextTimeLoopCounter     {waitNextTimeLoopCount}
         currentTcpPingInterval      {LoopCount2TimeSpan(currentTcpPingInterval)}
@@ -464,7 +464,7 @@ namespace AutoPPPoE
                                 if (duration != null && duration >=
                                     TimeSpan.FromMinutes(config.current.automaticRedialTimeoutMinutes))
                                 {
-                                    appendDebugLog(
+                                    appendLog(
                                         $"current duration: {duration} is too long at {DateTime.Now}, prepare to reconnect");
                                     showBalloonTip(Status.SHOW_AUTOMATIC_REDIAL_DUE_TO_TIMEOUT, true);
                                     stopPPPoE();
@@ -477,7 +477,7 @@ namespace AutoPPPoE
                 }
                 catch (Exception ex)
                 {
-                    appendDebugLog("异常 : " + ex.Message);
+                    appendLog("异常 : " + ex.Message);
                 }
 
                 Constant.wait(Status.WAIT_NEXT_TIME);
@@ -515,7 +515,7 @@ namespace AutoPPPoE
 
                     checkThread = null;
                 });
-                appendDebugLog("用户停止。");
+                appendLog("用户停止。");
                 updateUIStatus();
                 btnStart.Enabled = true;
             }
@@ -638,11 +638,23 @@ namespace AutoPPPoE
             labelDebugLog.Visible = txtDebugLog.Visible = chkShowDebugLog.Checked;
         }
 
-        private void appendDebugLog(string data)
+        private void appendDesktopLog(string data)
         {
             string date = DateTime.Now.ToString("yyyy - MM - dd tt hh : mm : ss");
             Console.WriteLine($@"[{date}] {data}");
             txtDebugLog.BeginInvoke((Action)(() => txtDebugLog.AppendText($@"[{date}] {data}{Environment.NewLine}")));
+        }
+
+        public void appendLog(string data)
+        {
+            if (Program.IsRunAsService)
+            {
+                Util.appendServiceLog(data);
+            }
+            else
+            {
+                appendDesktopLog(data);
+            }
         }
 
         private void chkAutomaticStartOnSystemBoot_CheckedChanged(object sender, EventArgs e)
