@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -344,6 +345,20 @@ namespace AutoPPPoE
             return TimeSpan.FromMilliseconds(loopCount * Constant.WAIT_NEXT_TIME_DELAY);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static int HowFastWeExpandTcpPingInterval()
+        {
+            // 工作时间避免拥堵，快速拉长
+            return isBussinessWorkingHour() ? 4 : 2;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static int HowFastWeShrinkTcpPingInterval()
+        {
+            // 非工作时间快速缩短
+            return isBussinessWorkingHour() ? 4 : 8;
+        }
+
         private void checkConnect(Status mode)
         {
             if (mode == Status.MODE_START_UP)
@@ -409,13 +424,13 @@ namespace AutoPPPoE
                                     // success
                                     restoredFromFailure    =  tcpPingCheckFailCount > 0;
                                     tcpPingCheckFailCount  =  0;
-                                    currentTcpPingInterval *= 2;
+                                    currentTcpPingInterval *= HowFastWeExpandTcpPingInterval();
                                 }
                                 else
                                 {
                                     // fail
                                     ++tcpPingCheckFailCount;
-                                    currentTcpPingInterval /= 2;
+                                    currentTcpPingInterval /= HowFastWeShrinkTcpPingInterval();
                                 }
 
                                 if (currentTcpPingInterval > maxTcpPingIntervalNextTimeLoopCount)
